@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Wedding Invitation | Preeti & Suryansh (Singh Family Invitation)</title>
+  <meta name="description" content="The Singh Family cordially invites you and your family to celebrate the wedding of their daughter Preeti with Suryansh in Varanasi.">
+  <meta name="theme-color" content="#4a0817">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Marcellus&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Petals Falling Canvas -->
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Mobile Bottom Sticky Quick Action Bar (App-like thumb experience) -->
+  <aside class="mobile-bottom-dock" aria-label="Quick Actions">
+    <a href="#destination" class="dock-item" id="dockVenues">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span>Venues & Maps</span>
+    </a>
+    <a href="#ceremonies" class="dock-item">
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Schedule</span>
+    </a>
+    <button class="dock-item dock-whatsapp" id="dockWhatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>Share Invite</span>
+    </button>
+    <button class="dock-item dock-music" id="dockMusic">
+      <i class="fa-solid fa-music"></i>
+      <span id="dockMusicText">Music</span>
+    </button>
+  </aside>
+
+  <!-- Floating Desktop Audio & Visual Controls -->
+  <div class="floating-controls desktop-only">
+    <button id="musicToggle" class="control-btn" title="Play/Mute Auspicious Shehnai Music">
+      <i class="fa-solid fa-music"></i>
+      <span class="btn-tooltip">Auspicious Music</span>
+    </button>
+    <button id="petalToggle" class="control-btn" title="Toggle Flower Shower">
+      <i class="fa-solid fa-spa"></i>
+      <span class="btn-tooltip">Flower Shower</span>
+    </button>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <nav class="navbar" id="mainNavbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="ganesh-symbol">ॐ</span>
+        <span class="logo-text">Shubh Vivah</span>
+      </a>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars" id="navToggleIcon"></i>
+      </button>
+      <div class="nav-backdrop" id="navBackdrop"></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
+        <li><a href="#invitation"><i class="fa-solid fa-envelope-open-text"></i> Invitation</a></li>
+        <li><a href="#ceremonies"><i class="fa-solid fa-calendar-days"></i> Events & Dates</a></li>
+        <li><a href="#destination"><i class="fa-solid fa-compass"></i> Venues & Maps</a></li>
+        <li><a href="#gallery"><i class="fa-solid fa-camera-retro"></i> Moments</a></li>
+        <li><a href="#family"><i class="fa-solid fa-people-roof"></i> Family</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Fluid Mobile Typography & Layout) -->
+  <header id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="ganesha-invocation">
+        <div class="om-symbol">॥ श्री गणेशाय नमः ॥</div>
+        <p class="invocation-subtext">"वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥"</p>
+      </div>
+
+      <div class="decorative-mandala">
+        <svg viewBox="0 0 100 100" class="mandala-svg">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 2"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.75"/>
+          <path d="M50,5 L54,20 L68,10 L62,25 L78,22 L68,34 L85,38 L72,46 L88,54 L72,58 L82,70 L68,68 L72,82 L58,74 L54,90 L50,75 L46,90 L42,74 L28,82 L32,68 L18,70 L28,58 L12,54 L28,46 L15,38 L32,34 L22,22 L38,25 L32,10 L46,20 Z" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.65"/>
+        </svg>
+      </div>
+
+      <p class="royal-tagline">The Singh Family Cordially Invites You</p>
+      
+      <!-- SWAPPED NAMES: BRIDE FIRST, THEN GROOM -->
+      <div class="couple-names">
+        <span class="name bride">Preeti</span>
+        <span class="weds-icon"><i class="fa-solid fa-heart"></i><br><em>weds</em></span>
+        <span class="name groom">Suryansh</span>
+      </div>
+
+      <p class="royal-invite-text">To celebrate the sacred matrimonial union of our beloved daughter</p>
+
+      <div class="hero-dates-badge">
+        <div class="badge-item">
+          <span class="badge-label">The Auspicious Wedding Day</span>
+          <span class="badge-date">Friday, 11th December 2026</span>
+          <span class="badge-venue"><i class="fa-solid fa-location-dot"></i> Durga Palace, Pandeypur, Varanasi</span>
+        </div>
+      </div>
+
+      <!-- Live Countdown Timer (Perfect Mobile Alignment) -->
+      <div class="countdown-wrapper">
+        <h3 class="countdown-title">The Auspicious Countdown Begins</h3>
+        <div class="countdown-timer" id="countdown">
+          <div class="time-card">
+            <span class="time-val" id="days">000</span>
+            <span class="time-unit">Days</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-card">
+            <span class="time-val" id="hours">00</span>
+            <span class="time-unit">Hours</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-card">
+            <span class="time-val" id="minutes">00</span>
+            <span class="time-unit">Mins</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-card">
+            <span class="time-val" id="seconds">00</span>
+            <span class="time-unit">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-action-buttons">
+        <a href="#destination" class="btn btn-gold">
+          <i class="fa-solid fa-map-location-dot"></i> View Venues & Maps
+        </a>
+        <a href="#ceremonies" class="btn btn-outline">
+          <i class="fa-solid fa-calendar-check"></i> Wedding Schedule & Timings
+        </a>
+      </div>
+    </div>
+    
+    <a href="#invitation" class="scroll-down-indicator" aria-label="Scroll Down">
+      <i class="fa-solid fa-angles-down"></i>
+    </a>
+  </header>
+
+  <!-- Invitation Letter Section -->
+  <section id="invitation" class="invitation-letter-section">
+    <div class="container">
+      <div class="letter-card">
+        <div class="ornate-corner top-left"></div>
+        <div class="ornate-corner top-right"></div>
+        <div class="ornate-corner bottom-left"></div>
+        <div class="ornate-corner bottom-right"></div>
+
+        <div class="section-badge">Atithi Devo Bhava</div>
+        <h2 class="section-title">Cordially Inviting Our Beloved Relatives & Family</h2>
+        <div class="title-divider">
+          <span class="divider-line"></span>
+          <i class="fa-solid fa-om divider-icon"></i>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="letter-body">
+          <p class="salutation">Respected Elders, Dear Relatives, and Beloved Family Members,</p>
+          
+          <p class="paragraph">
+            With the divine grace of Almighty Lord Shiva and the sacred blessings of our revered ancestors, we, the <strong>Singh Family</strong>, feel immense joy and honor in cordially inviting you and your family to celebrate the auspicious wedding of our beloved daughter:
+          </p>
+
+          <!-- BRIDE FIRST, THEN GROOM -->
+          <div class="couple-highlight-box">
+            <div class="couple-person">
+              <span class="family-tag">Our Beloved Daughter (Bride)</span>
+              <h4>Preeti</h4>
+              <p class="person-details">Daughter of the <strong>Singh Family</strong></p>
+            </div>
+            <div class="knot-symbol">
+              <i class="fa-solid fa-infinity"></i>
+              <span>Pavitra Bandhan</span>
+            </div>
+            <div class="couple-person">
+              <span class="family-tag">Groom</span>
+              <h4>Suryansh</h4>
+              <p class="person-details">Son of the <strong>Raghuvanshi Family</strong></p>
+            </div>
+          </div>
+
+          <p class="paragraph">
+            As our daughter embarks upon this sacred new chapter of life, her wedding is incomplete without the gracious presence, warmth, traditional customs, and divine blessings of our relatives and elders. We look forward with folded hands to welcoming you and your family to all the ceremonies in the holy city of Varanasi to bless Preeti and Suryansh.
+          </p>
+
+          <p class="closing-sign">
+            <em>With Warmest Regards & Welcoming You With Folded Hands,</em><br>
+            <strong>The Singh Family</strong><br>
+            <span style="font-size:0.95rem; color:#8e1834; font-weight:500;">(Accompanied with warm wishes from the Raghuvanshi Family)</span>
+          </p>
+
+          <!-- WhatsApp Share Button -->
+          <div class="share-invitation-box">
+            <p><i class="fa-brands fa-whatsapp"></i> Share this invitation with relatives on WhatsApp:</p>
+            <button id="whatsappShareBtn" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Share Invitation on WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ceremonies / Itinerary Section -->
+  <section id="ceremonies" class="ceremonies-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Shubh Muhurat & Timings</span>
+        <h2 class="section-title">Wedding Ceremonies & Dates</h2>
+        <div class="title-divider">
+          <span class="divider-line"></span>
+          <i class="fa-solid fa-sparkles divider-icon"></i>
+          <span class="divider-line"></span>
+        </div>
+        <p class="section-subtitle">
+          Please grace every auspicious ceremony of our daughter's wedding celebrations with your presence!
+        </p>
+      </div>
+
+      <div class="ceremonies-grid">
+
+        <!-- Event 1: Ring Ceremony & Tilak -->
+        <div class="ceremony-card" data-date="2026-12-07">
+          <div class="card-ribbon">Day 1</div>
+          <div class="card-icon-wrapper ring-theme">
+            <i class="fa-solid fa-ring"></i>
+          </div>
+          <div class="card-date-badge">
+            <span class="day">07</span>
+            <span class="month-year">Dec 2026</span>
+          </div>
+          <h3 class="ceremony-name">Ring Ceremony & Tilak</h3>
+          <p class="ceremony-sanskrit">॥ वाग्दान एवं तिलक समारोह ॥</p>
+          
+          <div class="ceremony-details">
+            <div class="detail-row">
+              <i class="fa-regular fa-calendar-days"></i>
+              <span><strong>Date:</strong> 07 / 12 / 2026 (Monday)</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-regular fa-clock"></i>
+              <span><strong>Ring Ceremony:</strong> 11:00 AM</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-solid fa-sun"></i>
+              <span><strong>Tilak Ceremony:</strong> 07:00 PM</span>
+            </div>
+            <div class="detail-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span><strong>Venue:</strong> SP Lawn, Chotta Lalpur, Pandeypur, Varanasi</span>
+            </div>
+            <div class="detail-row dress-code">
+              <i class="fa-solid fa-shirt"></i>
+              <span><strong>Attire:</strong> Elegant Indo-Western / Traditional Pastel</span>
+            </div>
+          </div>
+
+          <p class="ceremony-desc">
+            Welcoming the groom Suryansh and the Raghuvanshi family for the sacred engagement ring exchange at 11:00 AM, followed by the auspicious Tilak ceremony at 7:00 PM.
+          </p>
+
+          <div class="card-actions-row">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" target="_blank" rel="noopener noreferrer" class="btn btn-card-route">
+              <i class="fa-solid fa-diamond-turn-right"></i> Route to SP Lawn
+            </a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ring+Ceremony+%26+Tilak+-+Preeti+%26+Suryansh&dates=20261207T053000Z/20261207T160000Z&details=Ring+Ceremony+at+11:00+AM,+Tilak+Ceremony+at+7:00+PM&location=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" target="_blank" rel="noopener noreferrer" class="btn btn-card">
+              <i class="fa-regular fa-calendar-plus"></i> Cal
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 2: Haldi, Mehndi & Sangeet (At Bride's Home) -->
+        <div class="ceremony-card highlighted-card" data-date="2026-12-09">
+          <div class="card-ribbon festive-ribbon">At Our Home</div>
+          <div class="card-icon-wrapper haldi-theme">
+            <i class="fa-solid fa-hands-bubbles"></i>
+          </div>
+          <div class="card-date-badge">
+            <span class="day">09</span>
+            <span class="month-year">Dec 2026</span>
+          </div>
+          <h3 class="ceremony-name">Haldi, Mehndi & Sangeet</h3>
+          <p class="ceremony-sanskrit">॥ हरिद्रा लेपन, मेंहदी एवं संगीतोत्सव ॥</p>
+          
+          <div class="ceremony-details">
+            <div class="detail-row">
+              <i class="fa-regular fa-calendar-days"></i>
+              <span><strong>Date:</strong> 09 / 12 / 2026 (Wednesday)</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-regular fa-clock"></i>
+              <span><strong>Haldi & Mehndi:</strong> 11:00 AM Onwards</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-solid fa-music"></i>
+              <span><strong>Sangeet & Dance:</strong> 07:00 PM Onwards</span>
+            </div>
+            <div class="detail-row home-venue-row">
+              <i class="fa-solid fa-house-chimney-user"></i>
+              <span><strong>Venue:</strong> Our Residence (Sanjay Singh Residency, Vashno Vihar Colony, Akhari Bypass)</span>
+            </div>
+            <div class="detail-row dress-code">
+              <i class="fa-solid fa-shirt"></i>
+              <span><strong>Attire:</strong> Sunshine Yellow & Vibrant Festive Ethnic</span>
+            </div>
+          </div>
+
+          <p class="ceremony-desc">
+            Join us at our family residence for the auspicious turmeric glow, intricate bridal henna, traditional folk songs, and high-energy family dance performances!
+          </p>
+
+          <div class="card-actions-row">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=6359,+Amara+Village,+Bari+bazar,+Amara+Khaira+Chak,+Uttar+Pradesh+221106,+India" target="_blank" rel="noopener noreferrer" class="btn btn-card-route">
+              <i class="fa-solid fa-diamond-turn-right"></i> Route to Our Home
+            </a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi%2C+Mehndi+%26+Sangeet+-+Preeti+%26+Suryansh&dates=20261209T053000Z/20261209T173000Z&details=Haldi+and+Mehndi+from+11:00+AM,+Sangeet+from+7:00+PM&location=Sanjay+Singh+residency,+Vashno+Vihar+Colony,+Akhari+Bypass,+Varanasi" target="_blank" rel="noopener noreferrer" class="btn btn-card">
+              <i class="fa-regular fa-calendar-plus"></i> Cal
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 3: The Grand Wedding -->
+        <div class="ceremony-card grand-wedding-card" data-date="2026-12-11">
+          <div class="card-ribbon royal-ribbon">The Wedding</div>
+          <div class="card-icon-wrapper wedding-theme">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+          </div>
+          <div class="card-date-badge">
+            <span class="day">11</span>
+            <span class="month-year">Dec 2026</span>
+          </div>
+          <h3 class="ceremony-name">The Grand Wedding</h3>
+          <p class="ceremony-sanskrit">॥ पाणिग्रहण एवं शुभ विवाह संस्कार ॥</p>
+          
+          <div class="ceremony-details">
+            <div class="detail-row">
+              <i class="fa-regular fa-calendar-days"></i>
+              <span><strong>Date:</strong> 11 / 12 / 2026 (Friday)</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-solid fa-horse"></i>
+              <span><strong>Welcoming the Baraat:</strong> 06:30 PM</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-solid fa-champagne-glasses"></i>
+              <span><strong>Jaimala & Royal Dinner:</strong> 08:30 PM</span>
+            </div>
+            <div class="detail-row highlight-timing">
+              <i class="fa-solid fa-fire"></i>
+              <span><strong>Saat Phere & Kanyadaan:</strong> 11:30 PM</span>
+            </div>
+            <div class="detail-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span><strong>Venue:</strong> Durga Palace, Pandeypur, Varanasi</span>
+            </div>
+            <div class="detail-row dress-code">
+              <i class="fa-solid fa-shirt"></i>
+              <span><strong>Attire:</strong> Royal Indian Ethnic / Traditional Banarasi</span>
+            </div>
+          </div>
+
+          <p class="ceremony-desc">
+            Welcoming the wedding procession followed by the garland exchange, royal banquet, and the holy seven circumambulations around the sacred fire.
+          </p>
+
+          <div class="card-actions-row">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-card-route">
+              <i class="fa-solid fa-diamond-turn-right"></i> Route to Durga Palace
+            </a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Wedding+-+Preeti+%26+Suryansh&dates=20261211T130000Z/20261211T200000Z&details=Baraat+at+6:30+PM,+Jaimala+and+Dinner+at+8:30+PM,+Phere+at+11:30+PM&location=Durga+Palace,+Pandeypur,+Varanasi,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-card">
+              <i class="fa-regular fa-calendar-plus"></i> Cal
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations & Venues Interactive Section (Mobile-Optimized Tabs & Google Maps) -->
+  <section id="destination" class="destination-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Venues & Navigation</span>
+        <h2 class="section-title">Wedding Venues & Route Maps</h2>
+        <div class="title-divider">
+          <span class="divider-line"></span>
+          <i class="fa-solid fa-compass divider-icon"></i>
+          <span class="divider-line"></span>
+        </div>
+        <p class="section-subtitle">
+          Select a venue below to check location and start instant turn-by-turn navigation in Google Maps:
+        </p>
+      </div>
+
+      <!-- Mobile Scrollable / Tap-Friendly Venue Switcher Tabs -->
+      <div class="venue-tabs-container">
+        <div class="venue-tabs">
+          <button class="venue-tab-btn active" data-target="venue-wedding">
+            <div class="tab-badge"><i class="fa-solid fa-crown"></i> 11 Dec</div>
+            <span class="tab-title">Durga Palace</span>
+            <small class="tab-sub">The Grand Wedding</small>
+          </button>
+          <button class="venue-tab-btn" data-target="venue-ring">
+            <div class="tab-badge"><i class="fa-solid fa-ring"></i> 07 Dec</div>
+            <span class="tab-title">SP Lawn</span>
+            <small class="tab-sub">Ring & Tilak</small>
+          </button>
+          <button class="venue-tab-btn" data-target="venue-home">
+            <div class="tab-badge"><i class="fa-solid fa-house"></i> 09 Dec</div>
+            <span class="tab-title">Our Home</span>
+            <small class="tab-sub">Haldi, Mehndi, Sangeet</small>
+          </button>
+        </div>
+      </div>
+
+      <!-- VENUE 1: Durga Palace (Wedding) -->
+      <div class="venue-display-card active" id="venue-wedding">
+        <div class="venue-info-pane">
+          <div class="palace-badge"><i class="fa-solid fa-crown"></i> Grand Wedding Venue • 11 Dec 2026</div>
+          <h3 class="venue-title">Durga Palace</h3>
+          <p class="venue-location-line">
+            <i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> Pandeypur, Varanasi, Uttar Pradesh - 221002
+          </p>
+          <p class="venue-description">
+            The royal setting where we welcome the Baraat for the Grand Wedding, Jaimala, and Saat Phere. Features expansive banquet halls, celebration lawns, and ample parking.
+          </p>
+
+          <div class="travel-hints-grid">
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-train"></i></div>
+              <div class="hint-text">
+                <strong>Varanasi Cantt (BSB)</strong>
+                <span>Approx. 4.5 km (~15 mins drive)</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-plane-departure"></i></div>
+              <div class="hint-text">
+                <strong>Babatpur Airport</strong>
+                <span>Approx. 23 km (~40 mins drive)</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-landmark"></i></div>
+              <div class="hint-text">
+                <strong>Key Landmark</strong>
+                <span>Near Pandeypur Chauraha</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-square-parking"></i></div>
+              <div class="hint-text">
+                <strong>Parking Available</strong>
+                <span>Dedicated guest parking space</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-action-box">
+            <p class="click-hint"><i class="fa-solid fa-diamond-turn-right"></i> Tap below to open live route in Google Maps app:</p>
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-directions"
+            >
+              <i class="fa-solid fa-location-arrow"></i>
+              <span>Get Directions to Durga Palace</span>
+              <i class="fa-solid fa-arrow-up-right-from-square small-icon"></i>
+            </a>
+            <span class="route-sub-note">Launches Google Maps app on your phone with live GPS navigation</span>
+          </div>
+        </div>
+
+        <div class="venue-map-pane">
+          <div class="map-frame-header">
+            <span class="live-indicator"><span class="pulse-dot"></span> Live Location Map</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="map-fullscreen-link">
+              Open Full Map <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="iframe-container">
+            <iframe 
+              title="Location of Durga Palace, Pandeypur, Varanasi"
+              src="https://maps.google.com/maps?q=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="map-overlay-trigger"
+          >
+            <i class="fa-solid fa-route"></i> Tap Here to Start GPS Navigation
+          </a>
+        </div>
+      </div>
+
+      <!-- VENUE 2: SP Lawn (Ring Ceremony & Tilak) -->
+      <div class="venue-display-card" id="venue-ring">
+        <div class="venue-info-pane">
+          <div class="palace-badge ring-badge"><i class="fa-solid fa-ring"></i> Ring Ceremony & Tilak Venue • 07 Dec 2026</div>
+          <h3 class="venue-title">SP Lawn</h3>
+          <p class="venue-location-line">
+            <i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> Chhota Lalpur, Pandeypur, Varanasi, Uttar Pradesh
+          </p>
+          <div class="timings-reminder-box">
+            <p><strong><i class="fa-regular fa-clock"></i> Timings on 07 Dec 2026:</strong></p>
+            <p>• <strong>Ring Ceremony:</strong> 11:00 AM</p>
+            <p>• <strong>Tilak Ceremony:</strong> 07:00 PM</p>
+          </div>
+          <p class="venue-description">
+            A beautiful, lush celebration venue in Pandeypur where our family gathers to welcome the groom and solemnize the ring exchange and formal Vedic Tilak rituals.
+          </p>
+
+          <div class="travel-hints-grid">
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-train"></i></div>
+              <div class="hint-text">
+                <strong>Varanasi Cantt Station</strong>
+                <span>Approx. 5 km (~15-20 mins)</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-map-pin"></i></div>
+              <div class="hint-text">
+                <strong>Locality</strong>
+                <span>Chhota Lalpur, near Pandeypur</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-car"></i></div>
+              <div class="hint-text">
+                <strong>Accessibility</strong>
+                <span>Convenient via Ring Road</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-square-parking"></i></div>
+              <div class="hint-text">
+                <strong>Guest Parking</strong>
+                <span>Lawn parking available</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-action-box">
+            <p class="click-hint"><i class="fa-solid fa-diamond-turn-right"></i> Tap below to open live route in Google Maps app:</p>
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-directions"
+            >
+              <i class="fa-solid fa-location-arrow"></i>
+              <span>Get Directions to SP Lawn</span>
+              <i class="fa-solid fa-arrow-up-right-from-square small-icon"></i>
+            </a>
+            <span class="route-sub-note">Launches Google Maps app on your phone with live GPS navigation</span>
+          </div>
+        </div>
+
+        <div class="venue-map-pane">
+          <div class="map-frame-header">
+            <span class="live-indicator"><span class="pulse-dot"></span> Live Location Map</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" target="_blank" rel="noopener noreferrer" class="map-fullscreen-link">
+              Open Full Map <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="iframe-container">
+            <iframe 
+              title="Location of SP Lawn, Chotta Lalpur, Pandeypur, Varanasi"
+              src="https://maps.google.com/maps?q=SP+lawn,+chotalalpur,+pandeypur,+Varanasi&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="map-overlay-trigger"
+          >
+            <i class="fa-solid fa-route"></i> Tap Here to Start GPS Navigation
+          </a>
+        </div>
+      </div>
+
+      <!-- VENUE 3: Sanjay Singh Residency (Haldi, Mehndi, Sangeet - Bride's Home) -->
+      <div class="venue-display-card" id="venue-home">
+        <div class="venue-info-pane">
+          <div class="palace-badge home-badge"><i class="fa-solid fa-house-chimney-heart"></i> Haldi, Mehndi & Sangeet • Our Residence • 09 Dec 2026</div>
+          <h3 class="venue-title">Sanjay Singh Residency</h3>
+          <p class="venue-location-line">
+            <i class="fa-solid fa-location-dot"></i> <strong>Colony Address:</strong> Vashno Vihar Colony, Akhari Bypass, Varanasi
+          </p>
+          <div class="home-exact-address-card">
+            <div class="badge-house"><i class="fa-solid fa-house"></i> Exact Location & Postal Address of Our Home:</div>
+            <p class="address-highlight"><strong>6359, Amara Village, Bari bazar, Amara Khaira Chak, Uttar Pradesh 221106, India</strong></p>
+          </div>
+          <p class="venue-description">
+            Our family home warmly invites all our relatives and loved ones for our daughter's turmeric blessing, beautiful bridal Mehndi, and grand family Sangeet night!
+          </p>
+
+          <div class="travel-hints-grid">
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-road"></i></div>
+              <div class="hint-text">
+                <strong>Primary Landmark</strong>
+                <span>Akhari Bypass, Vashno Vihar Colony</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-map-location"></i></div>
+              <div class="hint-text">
+                <strong>Area Details</strong>
+                <span>Amara Village, Bari Bazar</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-mailbox"></i></div>
+              <div class="hint-text">
+                <strong>Pincode</strong>
+                <span>221106, Uttar Pradesh</span>
+              </div>
+            </div>
+            <div class="travel-hint-item">
+              <div class="hint-icon"><i class="fa-solid fa-people-roof"></i></div>
+              <div class="hint-text">
+                <strong>Hospitality</strong>
+                <span>Welcoming you with love</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-action-box">
+            <p class="click-hint"><i class="fa-solid fa-diamond-turn-right"></i> Tap below to open live route in Google Maps app:</p>
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=6359,+Amara+Village,+Bari+bazar,+Amara+Khaira+Chak,+Uttar+Pradesh+221106,+India" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-directions"
+            >
+              <i class="fa-solid fa-location-arrow"></i>
+              <span>Get Directions to Our Home</span>
+              <i class="fa-solid fa-arrow-up-right-from-square small-icon"></i>
+            </a>
+            <span class="route-sub-note">Launches Google Maps app on your phone with live GPS navigation</span>
+          </div>
+        </div>
+
+        <div class="venue-map-pane">
+          <div class="map-frame-header">
+            <span class="live-indicator"><span class="pulse-dot"></span> Live Location Map</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=6359,+Amara+Village,+Bari+bazar,+Amara+Khaira+Chak,+Uttar+Pradesh+221106,+India" target="_blank" rel="noopener noreferrer" class="map-fullscreen-link">
+              Open Full Map <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="iframe-container">
+            <iframe 
+              title="Location of 6359 Amara Village, Bari Bazar, Sanjay Singh Residency"
+              src="https://maps.google.com/maps?q=6359,+Amara+Village,+Bari+bazar,+Amara+Khaira+Chak,+Uttar+Pradesh+221106,+India&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=6359,+Amara+Village,+Bari+bazar,+Amara+Khaira+Chak,+Uttar+Pradesh+221106,+India" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="map-overlay-trigger"
+          >
+            <i class="fa-solid fa-route"></i> Tap Here to Start GPS Navigation
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Photo Moments & Gallery -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Memories & Love</span>
+        <h2 class="section-title">Cherished Moments</h2>
+        <div class="title-divider">
+          <span class="divider-line"></span>
+          <i class="fa-solid fa-heart divider-icon"></i>
+          <span class="divider-line"></span>
+        </div>
+        <p class="section-subtitle">
+          "A successful marriage requires falling in love many times, always with the same person."
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Traditional Indian Wedding Ceremony" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Eternal Vows</h4>
+              <p>Preeti & Suryansh</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Henna Mehndi Tradition" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Mehndi Ki Raat</h4>
+              <p>Celebrations at Our Residence</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Sacred Royal Decor" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Royal Celebrations</h4>
+              <p>Grand Wedding at Durga Palace</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Ring Ceremony & Tilak</h4>
+              <p>Sacred rituals at SP Lawn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family Hosts Section (Only Family Names - No Contact Information) -->
+  <footer id="family" class="footer-section">
+    <div class="container">
+      <div class="hosts-wrapper text-center">
+        <h3 class="hosts-heading">॥ स्वागताकांक्षी एवं दर्शनाभिलाषी ॥</h3>
+        <p class="hosts-subtext">Soliciting your esteemed presence and warm blessings</p>
+        
+        <div class="hosts-grid">
+          <!-- Bride Family (Primary Inviter) -->
+          <div class="host-family-card prominent-host-card">
+            <div class="host-badge">The Inviting Family</div>
+            <h4>Singh Family</h4>
+            <span class="family-role">Bride Preeti's Family</span>
+            <p class="host-members">
+              Shri Sanjay Singh & Family<br>
+              All Respected Elders, Brothers, Sisters<br>
+              & Entire Singh Parivar
+            </p>
+          </div>
+
+          <!-- Groom Family -->
+          <div class="host-family-card">
+            <h4>Raghuvanshi Family</h4>
+            <span class="family-role">Groom Suryansh's Family</span>
+            <p class="host-members">
+              The Raghuvanshi Parivar<br>
+              Parents, Elders & All Family Members
+            </p>
+          </div>
+        </div>
+
+        <div class="quick-destination-reminder">
+          <h4><i class="fa-solid fa-compass"></i> Direct Navigation to Venues</h4>
+          <div class="venue-links-quick-row">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Durga+Palace,+pandeypur,+Varanasi,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">
+              <i class="fa-solid fa-crown"></i> Durga Palace (11 Dec)
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=SP+lawn,+chotalalpur,+pandeypur,+Varanasi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">
+              <i class="fa-solid fa-ring"></i> SP Lawn (7 Dec)
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=6359,+Amara+Village,+Bari+bazar,+AmaraKhairaChak,+Uttar+Pradesh+221106,+India" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">
+              <i class="fa-solid fa-house"></i> Our Home (9 Dec)
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 With Love & Respect | The Singh Family</p>
+          <p class="back-to-top"><a href="#home"><i class="fa-solid fa-arrow-up"></i> Back to Top</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
